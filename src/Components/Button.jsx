@@ -1,11 +1,14 @@
 
 function Button (props) {
+  console.log(props)
   const {languages,click} = props;
-  const  {title} = languages;
-  const {clickOn} = click;
+  console.log(languages)
+  console.log(click)
+  
+ 
   return(
           
-    <button onClick={clickOn}>{title}</button>
+    <button onClick={()=>(click())}>{languages.title}</button>
     
 )
 }

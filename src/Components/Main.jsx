@@ -1,19 +1,27 @@
 import { useState } from 'react';
-
+import Button from "./Button"
 function Main(props) {
     // Crea una variabile di stato 'click' inizializzata come stringa vuota
     // setClick è la funzione per aggiornare lo stato 'click'
-    const [click, setClick] = useState("Nessun linguaggio selezionato");
+    const [description, setDescription] = useState("Nessun linguaggio selezionato");
+    const [selectedButton, setSelectedButton] = useState(null)
     const { languages } = props;
+    
+    
     return (
         <main>
             <div className="languages">
+                
                 {
-                    languages.map((element) => {
+                
+                languages.map((element) => {
+                        
                         const { id, title, description } = element;
-                        const clickon = () => { setClick(description)};
+                        const clickon = () =>  setDescription(description);
                         return (
+                        
                         <button key={id} onClick={clickon}>{title}</button>
+
                     )
                     }
                 )
@@ -25,22 +33,22 @@ function Main(props) {
                 </div> */}
 
 
-                 {/* prova passaggio onclick button components 
+                  {/* prova passaggio onclick button components  */}
                 <div>
                     {
                         languages.map((element) => {
                             const { description } = element;
-                            const clickOn = () => { setClick(description) };
+                            const clickOn = () => setDescription(description) ;
                             const { id } = element;
                             return (<Button key={id} languages={element} click={clickOn} />
                             )
                         })
                     }
-                </div>  */}
+                </div>  
 
                 <div className="description">
 
-                    <p>{click}</p>
+                    <p>{description}</p>
 
                 </div>
             </div>
